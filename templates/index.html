@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StockBuzz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StockBuzz Logo" id="logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Analyze Financial News Sentiment!</h1>
+        <p>Enter a keyword and choose a date range to begin</p>
+        <form method="post">
+            <label for="keyword">Keyword:</label>
+            <input type="text" name="keyword" id="keyword" placeholder="e.g., gold, apple" required>
+            <label for="range-select">Search Range:</label>
+            <select name="range" id="range-select" required>
+                <option value="1">Past 1 Day</option>
+                <option value="7" selected>Past 7 Days</option>
+                <option value="14">Past 14 Days</option>
+                <option value="30">Past 30 Days</option>
+                <option value="custom">Pick a Date</option>
+            </select>
+
+            <div id="custom-date" style="display: none;">
+                <label for="custom_date">Custom Start Date:</label>
+                <input type="date" name="custom_date" id="custom_date">
+            </div>
+        
+            <button type="submit">Analyze</button>
+
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+            
+        </form>
+
+        <script>
+            const rangeSelect = document.getElementById('range-select');
+            const customDateDiv = document.getElementById('custom-date');
+            const customDateInput = document.getElementById('custom_date');
+
+            rangeSelect.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customDateDiv.style.display = 'block';
+                    customDateInput.required = true;
+                } else {
+                    customDateDiv.style.display = 'none';
+                    customDateInput.required = false;
+                }
+            });
+        </script>        
+    </section>
+</body>
+</html>

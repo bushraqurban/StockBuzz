@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results - {{ keyword }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StockBuzz Logo" id="logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Results for "{{ keyword }}"</h2>
+    
+        <h1>Overall Sentiment: <span class="{{ overall | lower }}">{{ overall }}</span> ({{ final_score | round(2) }})</h1>
+
+        <div class="articles">
+            {% for article in results %}
+            <div class="card {{ article.sentiment | lower }}">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.description }}</p>
+                <a href="{{ article.url }}" target="_blank">Read more</a>
+                <p>Sentiment: <strong>{{ article.sentiment }}</strong> | Score: {{ article.score | round(2) }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

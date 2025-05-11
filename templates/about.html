@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - StockBuzz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="StockBuzz Logo" id="logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to StockBuzz!</h1>
+        <p>
+            StockBuzz uses AI to analyze the sentiment of financial news. It is powered by FinBERT, a model trained for finance-related text.
+        </p>
+        <p class="disclaimer">
+            <strong>
+                Disclaimer: This app does not give financial advice. It only shows sentiment trends in the news. Do not solely rely on it for investment decisions.
+            </strong>
+        </p>
+    </section>
+</body>
+</html>

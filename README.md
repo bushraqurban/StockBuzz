@@ -1,8 +1,11 @@
-# 📈 StockBuzz - Financial News Sentiment Analyzer
+<h1 align="center">
+        <img alt="StockBuzz Logo" width="400px" src="static/images/logo.png">
+</h1>
+
+### An AI Based Financial News Sentiment Analyzer
 
 StockBuzz is a web application that analyzes the **sentiment of financial news articles** using the FinBERT model. It helps users understand the market mood surrounding specific keywords like "apple", "gold", or "tech stocks".
 
-> ⚠️ This app is for educational purposes only. It does **not provide financial advice**.
 
 ---
 
